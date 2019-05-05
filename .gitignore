@@ -1,0 +1,6 @@
+lib/
+node_modules/
+yarn.lock
+yarn-error.log
+prisma/prisma.yml
+src/generated

@@ -1,0 +1,14 @@
+{
+  "name": "hn-api",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "dependencies": {
+    "graphql-yoga": "^1.17.4",
+    "prisma-client-lib": "^1.30.4"
+  },
+  "devDependencies": {
+    "@types/aws-lambda": "^8.10.25",
+    "@types/ws": "^6.0.1"
+  }
+}
