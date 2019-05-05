@@ -7,7 +7,11 @@
     "bcryptjs": "^2.4.3",
     "graphql-yoga": "^1.17.4",
     "jsonwebtoken": "^8.5.1",
-    "prisma-client-lib": "^1.30.4"
+    "prisma-client-lib": "^1.30.4",
+    "build": "tsc",
+    "serve": "tsc --watch",
+    "dev": "nodemon lib/index.js",
+    "start": "node lib/index.js"
   },
   "devDependencies": {
     "@types/aws-lambda": "^8.10.25",
