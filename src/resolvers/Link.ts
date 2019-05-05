@@ -29,4 +29,3 @@ export const votesCount = async (
     const votes = await (context.prisma as Prisma).votes({ where: {link: {id: parent.id}} });
     return votes.length;
 }
- 

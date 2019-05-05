@@ -3,8 +3,22 @@ const gql = String.raw;
 const schema = gql`
 type Query {
 	info: String
-	feed: [Link!]!
+	feed(filter: String, start: Int, first: Int, orderBy: LinkOrderByInput): feed!
 	link(id: ID): Link
+}
+
+type feed {
+	links: [Link!]!
+	count: Int!
+}
+
+enum LinkOrderByInput {
+  description_ASC
+  description_DESC
+  url_ASC
+  url_DESC
+  createdAt_ASC
+  createdAt_DESC
 }
 
 type Mutation {
@@ -18,6 +32,7 @@ type Mutation {
 
 type Subscription {
 	newLink: Link
+	newVote: Vote
 }
 
 type AuthPayload {
