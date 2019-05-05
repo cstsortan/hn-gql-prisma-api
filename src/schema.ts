@@ -13,6 +13,7 @@ type Mutation {
 	deleteLink(id: ID!): Link
 	signup(email: String!, password: String!, name: String!): AuthPayload
 	signin(email: String!, password: String!): AuthPayload
+	vote(linkId: ID!): Vote
 }
 
 type Subscription {
@@ -29,6 +30,8 @@ type Link {
 	description: String!
 	url: String!
 	author: User
+	votes: [Vote!]!
+	votesCount: Int!
 }
 
 type User {
@@ -36,6 +39,13 @@ type User {
 	name: String!
 	email: String!
 	links: [Link!]!
+	votes: [Vote!]!
+}
+
+type Vote {
+	id: ID!
+	link: Link!
+	user: User!
 }
 `
 

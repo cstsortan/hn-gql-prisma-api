@@ -6,6 +6,7 @@ import * as Mutation from './resolvers/Mutation';
 import * as Link from './resolvers/Link';
 import * as User from './resolvers/User';
 import * as Subscription from './resolvers/Subscription';
+import * as Vote from './resolvers/Vote';
 
 
 const resolvers = {
@@ -14,6 +15,7 @@ const resolvers = {
     Subscription,
     User,
     Link,
+    Vote,
 }
 
 const server = new GraphQLServer({

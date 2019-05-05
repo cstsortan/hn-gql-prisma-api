@@ -94,3 +94,38 @@ export const deleteLink = (parent: Link, args: {id: string}, context: {prisma: P
         id: args.id,
     })
 }
+
+export const vote = async (
+    parent: any,
+    args: {linkId: string},
+    context: Context,
+) => {
+    const userId = getUserId(context);
+
+    const prisma: Prisma = context.prisma;
+
+    const linkExists = await prisma.$exists.vote({
+        user: {
+            id: userId,
+        },
+        link: {
+            id: args.linkId,
+        },
+    })
+    if (linkExists) {
+        throw new GraphQLError("Already voted for this link")
+    }
+
+    return prisma.createVote({
+        link: {
+            connect: {
+                id: args.linkId
+            }
+        },
+        user: {
+            connect: {
+                id: userId
+            }
+        }
+    })
+}

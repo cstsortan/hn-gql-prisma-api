@@ -10,3 +10,23 @@ export const author = (
 
     return prisma.link({ id: parent.id }).author();
 }
+
+export const votes = (
+    parent: {id: string},
+    args: any,
+    context: Context
+) => {
+    const prisma: Prisma = context.prisma;
+
+    return prisma.link({ id: parent.id }).votes()
+}
+
+export const votesCount = async (
+    parent: {id: string},
+    args: any,
+    context: Context
+) => {
+    const votes = await (context.prisma as Prisma).votes({ where: {link: {id: parent.id}} });
+    return votes.length;
+}
+ 
