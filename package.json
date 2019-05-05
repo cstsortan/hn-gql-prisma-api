@@ -4,11 +4,15 @@
   "main": "index.js",
   "license": "MIT",
   "dependencies": {
+    "bcryptjs": "^2.4.3",
     "graphql-yoga": "^1.17.4",
+    "jsonwebtoken": "^8.5.1",
     "prisma-client-lib": "^1.30.4"
   },
   "devDependencies": {
     "@types/aws-lambda": "^8.10.25",
-    "@types/ws": "^6.0.1"
+    "@types/ws": "^6.0.1",
+    "@types/bcryptjs": "^2.4.2",
+    "@types/jsonwebtoken": "^8.3.2"
   }
 }
